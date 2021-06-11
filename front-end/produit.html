@@ -20,7 +20,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
-    <title>Orinoco | Accueil</title>
+    <title>Orinoco | Produits</title>
 </head>
 
 <body>
@@ -55,16 +55,48 @@
             </div>
         </header>
 
-        <section class="banner">
-            <img src="images/teddy_4.jpg">
-        </section>
-
         <div class="container-fluid">
-            <div class="row">
-              <div class="col text-center jumbotron">
-                <h1>NOS OURS EN PELUCHE FAITS À LA MAIN</h1>
+
+          <div id="product" class="row jumbotron">
+    
+            <div class="col-12 col-md-6">
+    
+              <a class="d-flex text-dark mb-2" href="index.html">
+                <span><i class="fas fa-undo-alt"></i></span>
+                <p class="ml-2">Revenir à la page d'accueil</p>
+              </a>
+    
+              <img class="product-img w-100" src="" alt="Photo d'ours en peluche">
+    
+            </div>
+    
+            <div class="col-12 col-md-6">
+              <div class="card border-0">
+                <div id="product-details" class="card-body pt-sm-3 pt-md-0">
+    
+                  <h2 class="card-title font-weight-bold"></h2>
+                  <p class="card-price font-weight-bold"></p>
+                  <p class="card-description font-weight-light"></p>
+                  <form>
+                    <div class="form-group">
+                      <label for="input-quantity" class="mt-2 ">Quantité</label>
+                      <input id="input-quantity" type="number" min="1" value="1" class="text-dark mb-2 pl-3 w-100" />
+    
+                      <label for="select-color" class="mt-2">Couleur</label>
+                      <select class="form-control" id="select-color">
+                      </select>
+    
+                    </div>
+    
+                    <button type="button" id="add-to-cart" class="btn btn-secondary btn-block">Ajouter au panier</button>
+                  </form>
+    
+                </div>
               </div>
-            </div>      
+            </div>
+    
+          </div>
+    
         </div>
 
         <footer class="fixed-bottom">
@@ -84,8 +116,8 @@
         </footer>
 
     </div>
+
+  <script type="module" src="js/produit.js"></script>
   
-  <script src="js/index.js"></script>
-   
 </body>
 </html>
