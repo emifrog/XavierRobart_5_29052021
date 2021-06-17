@@ -66,7 +66,11 @@ ul li:first-child {
     }
   }
   
-  #products,
+  #results{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
   #product,
   #pad-bottom {
     padding-bottom: 70px;
