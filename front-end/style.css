@@ -19,12 +19,15 @@ footer {
 }
 
 .banner img {
-    width: 100%;
-    height: 10%;
+  width: 100%;
+  height: 10%;
 	background-repeat: no-repeat;
 	display: flex;
 	justify-content: flex-end;
 }
+
+
+
 
 footer {
     padding: 20px 0;
@@ -71,6 +74,8 @@ ul li:first-child {
     flex-wrap: wrap;
   }
   
+  #products,
+  #product,
   #myProduct,
   #pad-bottom {
     padding-bottom: 70px;
