@@ -1,84 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez nos ours en peluche faits à la main" />
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Orinoco, Site de vente en ligne d'ourson en peluche. Orinoco teddyBear fait main. " />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/530869a928.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
-
-    <title>Orinoco | Panier</title>
+    <title>Orinoco</title>
 </head>
+<!-- -->
 
 <body>
-    <div class="page-container">
-        <header>
-            <div class="container-fluid">
-              <div class="row">
-                <nav class="col navbar navbar-light navbar-expand-lg w-100">
-                  <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" alt="Logo Orinoco" height="70" />
-                  </a>
-      
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-      
-                  <div id="navbarContent" class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link text-dark" href="index.html">Accueil</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="panier.html">
-                          <span><i class="fas fa-shopping-cart"></i></span>
-                          <span>Panier</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a href="index.html"><img src="images/logo.png" alt="logo Orinoco" /></a>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="link-panier" href="panier.html"> Panier<i class="fas fa-shopping-cart"> <span id="spannumber"></span> </span></i></a>
+                    </li>
+                </ul>
             </div>
-        </header>
+        </nav>
+    </header>
 
+    <main>
+        <section>
+            <h1>Panier</h1>
+            <article id="monpanier">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenue">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan=2 class="titre-panier">Total</th>
+                            <th class="sous_Total titre-panier ">/</th>
+                            <th class="vide_panier"><button class="btn btn-primary allDelete" title="Vider le panier"><i class="fas fa-trash-alt"></i> Vider le panier</button>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </article>
+        </section>
+
+        <section id="formulaire">
+            <h2 class="titreNom titreformulaire">Formulaire de commande</h2>
+
+            <form class="formulairecentrer">
+                <div class="form-row ">
+                    <div class="col-md-4 mb-3">
+                        <label for="prenom" aria-label="prenom">Prénom</label>
+                        <input type="text" class="form-control" id="prenom" placeholder="Prénom" required>
+                        <div id="alerteprenom" class="alertspan"></div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="nom" aria-label="nom">Nom</label>
+                        <input type="text" class="form-control" id="nom" placeholder="Nom" required>
+                        <div id="alertenom" class="alertspan"></div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="email" aria-label="email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="test">@</span>
+                            </div>
+                            <input type="text" class="form-control" id="email" placeholder="Adresse Email" required>
+                        </div>
+                        <div id="alertemail" class="alertspan"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress" aria-label="adresse">Adresse</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Adresse" required>
+                        <div id="alerteadress" class="alertspan"></div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <label for="ville" aria-label="postal">Ville</label>
+                        <input type="text" class="form-control" id="ville" placeholder="Code postal et Ville" required>
+                        <div id="alerteville" class="alertspan"></div>
+                    </div>
+
+                </div>
+
+                <p class="btn-commande btn-primary commande">Passer Commande</p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
         <div class="container-fluid">
-            <div class="row">
-              <div class="col text-center jumbotron">
-                <h1>Votre Panier</h1>
+            <div class="row justify-content-between text-center">
+              <div class="col-6 col-md-3">
+                <a href="#">À propos</a>
               </div>
-            </div>      
-        </div>
-
-        <footer class="fixed-bottom">
-            <div class="container-fluid">
-              <div class="row justify-content-between text-center">
-                <div class="col-6 col-md-3">
-                  <a class="text-dark" href="#">À propos</a>
-                </div>
-                <div class="col-6 col-md-3">
-                  <a class="text-dark" href="#">Nous Contacter</a>
-                </div>
-                <div class="col-6 col-md-3">
-                  <a class="text-dark" href="#">Mentions légales</a>
-                </div>
+              <div class="col-6 col-md-3">
+                <a href="#">Nous Contacter</a>
+              </div>
+              <div class="col-6 col-md-3">
+                <a href="#">Mentions légales</a>
               </div>
             </div>
-        </footer>
+          </div>
+    </footer>
 
-    </div>
-    
+    <script src="js/fonction.js" defer></script>
+    <script src="js/panier.js" defer></script>
+
 </body>
 </html>
