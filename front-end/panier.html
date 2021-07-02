@@ -20,7 +20,7 @@
     <title>Orinoco - Panier</title>
 </head>
 <body>
-        <header>
+    <header>
         <div class="container-fluid">
             <div class="header-container">
                 <div class="nav">
@@ -32,6 +32,7 @@
             </div>
         </div>
     </header>
+
     <main>
         <div class="container">
             <div class="cart-card">
@@ -41,7 +42,6 @@
                         <div class="cart-card__recap__title first-line">Nom</div>
                         <div class="cart-card__recap__title title-quantity first-line">Quantité</div>
                         <div class="cart-card__recap__title data-price first-line">Prix </div>
-
                     </div>                     
                     <div class="width-to-empty-cart">
                         <a href="panier.html">
@@ -50,7 +50,7 @@
                             </div>
                         </a>
                     </div>
-                    <h2 class="total"></h2>            
+                    <h3 class="total"></h3>            
                 </div>
     
                 <div class="cart-card__form">
@@ -65,7 +65,11 @@
                                 <label for="lastname">Nom :</label>
                                 <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
                             </div>
-                        </div>        
+                        </div>
+                        <div class="cart-card__form-line" id="bloc__adress">
+                            <label for="adress">Adresse :</label>
+                            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" required>
+                        </div>
                         <div class="postal-and-city">
                             <div class="cart-card__form-line" id="bloc__postal">
                                 <label for="postal">Code postal :</label>
@@ -75,10 +79,6 @@
                                 <label for="city">Ville :</label>
                                 <input type="text" placeholder="Ville" id="city" name="user_city" required>
                             </div>
-                        </div>
-                        <div class="cart-card__form-line" id="bloc__adress">
-                            <label for="adress">Adresse :</label>
-                            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" required>
                         </div>
                         <div class="cart-card__form-line" id="bloc__mail">
                             <label for="mail">Adresse mail :</label>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="erreur"></div>
                         <div class="cart-card__form__buttons">
-                                <div id="submit" class="cart-card__form__button to-pay" >Commander</div>
+                            <div id="submit" class="cart-card__form__button to-pay" >Commander</div>
                         </div>
                     </form>
 
@@ -101,6 +101,7 @@
                     
                 </div>
             </div>
+
             <div class="if-empty-cart">
                 <h2>Votre panier est vide. <a href="index.html">Remplissez le d'abord !</a></h2>
             </div>

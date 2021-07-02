@@ -139,7 +139,7 @@ h1 {
 }
 
 .teddy-bear__bg__text-group__title {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
   max-width: 700px;
@@ -389,6 +389,8 @@ main .products-container .products .product__infos {
 
 .container .cart-card .cart {
   margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .container .cart-card__recap {
@@ -456,11 +458,16 @@ main .products-container .products .product__infos {
   transition: 0.3s;
 }
 
+.container .cart-card .width-to-empty-cart a {
+  text-decoration: none;
+  color: #000;
+}
+
 .container .cart-card__recap .cart-card__form__button {
   margin: 5px 0;
-  width: 130px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
+  background-color: #955ef0;
   border: solid 1px #352208;
 }
 
@@ -479,7 +486,6 @@ main .products-container .products .product__infos {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #352208;
   height: 100%;
 }
 
@@ -574,8 +580,8 @@ main .products-container .products .product__infos {
 }
 
 .container .cart-card__form .cart-card__form__button {
-  padding: 20px;
-  background: #e1bb80;
+  padding: 10px;
+  background: #955ef0;
   border-radius: 5px;
   border: solid 1px #352208;
 }
@@ -586,7 +592,6 @@ main .products-container .products .product__infos {
 }
 
 .container .cart-card__form .to-pay {
-  font-family: Josefin Sans;
   font-size: 18px;
   margin-bottom: 20px;
   display: -webkit-box;
@@ -626,7 +631,7 @@ main .products-container .products .product__infos {
 }
 
 .container .total {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .title-quantity {
