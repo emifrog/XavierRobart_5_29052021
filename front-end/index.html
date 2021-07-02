@@ -1,75 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Orinoco, Site de vente en ligne d'ourson en peluche fait main" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-		<link rel="stylesheet" type="text/css" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orinoco, Site de vente en ligne d'ourson en peluche fait main" />
+    
+    <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
 
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
 
-		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 
-		<title>Orinoco - Accueil</title>
-	</head>
-	<body>
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<a class="navbar-brand" href="index.html"><img class="mr-3" src="images/logo.png" height="60" alt="Site logo"/></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div id="navbarContent" class="collapse navbar-collapse">
-					<ul class="navbar-nav w-100 d-flex justify-content-end">
-						<li class="nav-item">
-							<a class="nav-link font-weight-bold" href="panier.html">
-								PANIER 
-								<i class="fas fa-shopping-cart fa-1x"></i>
-								<span id="cart_number"></span>
-							</a>
-						</li>
-						<li class="nav-item"><a class="nav-link font-weight-bold" href="confirmation.html">COMMANDE</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+    <link rel="stylesheet" href="style.css">
 
-		<section id="banner"></section>
+    <title>Orinoco - Accueil</title>
 
-		<main class="pb-5">
-			<section>
-				<h2 class="bg-white col-md-auto text-center mb-5 pt-4 pb-4">Découvrez notre collection d'ours en peluche fait main</h2>
-				<div id="produits"></div>
-			</section>
-		</main>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="header-container">
+                <div class="nav">
+                    <a href="index.html"><img src="images/logo.png" alt="logo site" class="nav__logo"></a>
+                    <a href="panier.html"><div class="nav__cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-		<footer class="bg-secondary text-white">
-			<div class="">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<ul class="list-inline text-center pt-3">
-								<li class="list-inline-item"><a href="index.html">Mentions légales</a></li>
-								<li class="list-inline-item">&middot;</li>
-								<li class="list-inline-item"><a href="mailto:contact@orinoco.com">Nous contacter</a></li>
-								<li class="list-inline-item">&middot;</li>
-								<li class="list-inline-item"><a href="#">Livraison</a></li>
-								<li class="list-inline-item">&middot;</li>
-								<li class="list-inline-item"><a href="#">Conditions générales de vente</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+    <main>
+        <div class="teddy-bear__bg" >
+            <div class="teddy-bear__bg__text-group">
+                <h2 class="teddy-bear__bg__text-group__title">Découvrez notre collection d'ours en peluche fait main</h2>
+            </div>                
+        </div>
+        <div class="products-container">
+            <h3 class="title">Nos produits</h3>
+            <div class="products">
+                
+            </div>
+        </div>
+    </main>
 
-		<script src="js/cart.js"></script>
-		<script src="js/index.js"></script>
-		
-	</body>
+    <footer>
+        <div class="nav">
+            <a href="" class="nav__link">NouscContacter</a>
+            <a href="" class="nav__link">Mentions légales</a>
+            <a href="" class="nav__link">Conditions générales de vente</a>
+        </div>
+    </footer>
+    
+    <script src="js/index.js"></script>
+
+</body>
 </html>

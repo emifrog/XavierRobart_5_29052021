@@ -1,30 +1,63 @@
-function getRequest(){
+main();
 
-const fetchPromise = fetch("http://localhost:3000/api/teddies");
-const inputJS = document.getElementById("produits");
-
-fetchPromise.then(response => {        //on exécute la promesse
-  return response.json();              // on récupère le résultat sous format json
-})
-.then((data => {
-  data.forEach((item)  => {            //pour chaque item récupéré de l'API, on crée une constante name, price_id etc..
-    const { name, price, _id, description, imageUrl } = item;
-      //puis on affiche ces informations sous forme HTML
-         inputJS.innerHTML +=`
-            <div class="container col-md-6 col-lg-4">
-               <div class="affichage_produit mt-4 card bg-white">
-                  <img class=”card-img-top” src="${imageUrl}"  alt="appareil ${name}">
-                  <div class="card-body">
-                     <h3 class="card-title">${name}</h3>
-                     <span>${price/100}€</span></p>
-                     <p class="card-text product-description">${description}</p>
-                     <div class="text-center mt-4" ><a id="bouton" type="button" class="btn btn-secondary text-white" onclick="window.location.href = 'produit.html?id=${_id}'">En savoir plus</a></div>
-                  </div>
-               </div>
-            </div>`
-   })
-}))
-
+function main() {
+  getArticles();
 }
-getRequest()
-cartNumber()
+
+// Récupérer les articles depuis l'API
+function getArticles() {
+  fetch("http://localhost:3000/api/teddies")
+    .then(function (res) {
+      return res.json();
+    })
+    .catch((error) => {
+      let productsContainer = document.querySelector(".products-container");
+      productsContainer.innerHTML =
+        "Nous n'avons pas réussi à afficher nos nounours. Avez vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+      productsContainer.style.textAlign = "center";
+      productsContainer.style.padding = "30vh 0";
+    })
+
+    // Dispatcher les données de chaque produit (prix, nom...) dans le DOM
+    .then(function (resultatAPI) {
+      const articles = resultatAPI;
+      for (let article in articles) {
+        let productCard = document.createElement("div");
+        document.querySelector(".products").appendChild(productCard);
+        productCard.classList.add("product");
+
+        let productLink = document.createElement("a");
+        productCard.appendChild(productLink);
+        productLink.href = `product.html?id=${resultatAPI[article]._id}`;
+        productLink.classList.add("stretched-link");
+
+        let productImgDiv = document.createElement("div");
+        productLink.appendChild(productImgDiv);
+        productImgDiv.classList.add("product__img");
+
+        let productImg = document.createElement("img");
+        productImgDiv.appendChild(productImg);
+        productImg.src = resultatAPI[article].imageUrl;
+
+        let productInfosDiv = document.createElement("div");
+        productLink.appendChild(productInfosDiv);
+        productInfosDiv.classList.add("product__infos");
+
+        let productInfoTitle = document.createElement("div");
+        productInfosDiv.appendChild(productInfoTitle);
+        productInfoTitle.classList.add("product__infos__title");
+        productInfoTitle.innerHTML = resultatAPI[article].name;
+
+        let productInfoPrice = document.createElement("div");
+        productInfosDiv.appendChild(productInfoPrice);
+        productInfoPrice.classList.add("product__infos__price");
+
+        // Formatage du prix pour l'afficher en euros
+        resultatAPI[article].price = resultatAPI[article].price / 100;
+        productInfoPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
+          style: "currency",
+          currency: "EUR",
+        }).format(resultatAPI[article].price);
+      }
+    });
+}
