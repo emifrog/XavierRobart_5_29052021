@@ -3,9 +3,7 @@ let id = params.get("id");
 
 const productCardImg = document.querySelector(".img");
 const productCardName = document.querySelector(".product-card__infos__title");
-const productCardDescription = document.querySelector(
-  ".product-card__infos__description"
-);
+const productCardDescription = document.querySelector(".product-card__infos__description");
 const productCardPrice = document.querySelector(".product-card__infos__price");
 const bearNumber = document.querySelector("#bearNum");
 const colorSelect = document.querySelector("#color-select");
@@ -14,12 +12,12 @@ const colorSelect = document.querySelector("#color-select");
 main();
 
 function main() {
-  checkIf404();
+  error404();
   getArticles();
   addToCart();
 }
 
-function checkIf404() {
+function error404() {
   window.addEventListener("error", (e) => {
       let container = document.querySelector(".container");
       container.innerHTML = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
@@ -52,7 +50,7 @@ function getArticles() {
       productCardImg.src = article.imageUrl;
       productCardDescription.innerText = article.description;
 
-      // Formatage du prix pour l'afficher en euros
+      // Affichage des prix en euros
       article.price = article.price / 100;
       productCardPrice.innerText = new Intl.NumberFormat("fr-FR", {
         style: "currency",
@@ -83,7 +81,7 @@ function addToCart() {
         _id: id,
       };
 
-      // ----------------- Gestion du localStorage
+      // Gestion du localStorage
       let arrayProductsInCart = [];
       
       // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
@@ -97,7 +95,7 @@ function addToCart() {
         localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
       
 
-      // Effets visuels lors d'un ajout au panier
+      // Affichage lors d'un ajout au panier
       confirmation.style.visibility = "visible";
       textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;
       setTimeout("location.reload(true);", 4000);

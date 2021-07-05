@@ -77,7 +77,7 @@ function countTotalInCart() {
   const reducer = (acc, currentVal) => acc + currentVal;
   arrayOfPrice = arrayOfPrice.reduce(reducer);
 
-  // Affichage du prix avec formatage €
+  // Affichage du prix en euros
   totalPrice.innerText = `Total : ${(arrayOfPrice = new Intl.NumberFormat(
     "fr-FR",
     {

@@ -10,7 +10,7 @@ function getArticles() {
     .then(function (res) {
       return res.json();
     })
-    .catch((error) => {
+    .catch((error) => {    //message d'erreur si le server n'est pas lancé
       let productsContainer = document.querySelector(".products-container");
       productsContainer.innerHTML =
         "Nous n'avons pas réussi à afficher nos nounours. Avez vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
@@ -18,7 +18,7 @@ function getArticles() {
       productsContainer.style.padding = "30vh 0";
     })
 
-    // Dispatcher les données de chaque produit (prix, nom...) dans le DOM
+    // Répartition des données de chaque produit (prix, nom...) dans le DOM
     .then(function (resultatAPI) {
       const articles = resultatAPI;
       for (let article in articles) {
@@ -52,7 +52,7 @@ function getArticles() {
         productInfosDiv.appendChild(productInfoPrice);
         productInfoPrice.classList.add("product__infos__price");
 
-        // Formatage du prix pour l'afficher en euros
+        // Affichage des prix en euros
         resultatAPI[article].price = resultatAPI[article].price / 100;
         productInfoPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
           style: "currency",
