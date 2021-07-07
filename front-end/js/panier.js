@@ -32,12 +32,12 @@ function displayCart() {
     let productName = document.createElement("div");
     productRow.appendChild(productName);
     productName.classList.add("cart-card__recap__title");
-    productName.innerHTML = copyOfLS[produit].name;
+    productName.textContent = copyOfLS[produit].name;
 
     let productQuantity = document.createElement("div");
     productRow.appendChild(productQuantity);
     productQuantity.classList.add("cart-card__recap__title", "title-quantity");
-    productQuantity.innerHTML = copyOfLS[produit].quantity;
+    productQuantity.textContent = copyOfLS[produit].quantity;
 
     let productPrice = document.createElement("div");
     productRow.appendChild(productPrice);
@@ -48,7 +48,7 @@ function displayCart() {
     );
 
     // Affichage du prix avec le formatage €
-    productPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
+    productPrice.textContent = new Intl.NumberFormat("fr-FR", {
       style: "currency",
       currency: "EUR",
     }).format(copyOfLS[produit].price * copyOfLS[produit].quantity);
@@ -62,7 +62,7 @@ function countTotalInCart() {
   // On push chaque prix du DOM dans un tableau
   let productPriceAccordingToQuantity = document.querySelectorAll(".price");
   for (let price in productPriceAccordingToQuantity) {
-    arrayOfPrice.push(productPriceAccordingToQuantity[price].innerHTML);
+    arrayOfPrice.push(productPriceAccordingToQuantity[price].textContent);
   }
 
   // On enlève les undefined du tableau
@@ -120,7 +120,7 @@ function checkFormAndPostRequest() {
       !inputMail.value ||
       !inputPhone.value
     ) {
-      erreur.innerHTML = "Vous devez renseigner tous les champs !";
+      erreur.textContent = "Vous devez renseigner tous les champs !";
       e.preventDefault();
     } else if (isNaN(inputPhone.value)) {
       e.preventDefault();

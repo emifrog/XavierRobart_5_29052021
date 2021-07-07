@@ -20,7 +20,7 @@ function main() {
 function error404() {
   window.addEventListener("error", (e) => {
       let container = document.querySelector(".container");
-      container.innerHTML = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
+      container.textContent = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
       container.style.padding = "40vh 0";
       container.style.fontSize = "26px";
       let backToHomeLink = document.querySelector(".back-to-home");
@@ -38,7 +38,7 @@ function getArticles() {
     })
     .catch((error) => {
       let container = document.querySelector(".container");
-      container.innerHTML =
+      container.textContent =
         "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
       container.style.textAlign = "center";
       container.style.padding = "45vh 0";
@@ -46,7 +46,7 @@ function getArticles() {
     .then(function (resultatAPI) {
       // On place les données reçues via l'API aux bons endroits sur la page
       article = resultatAPI;
-      productCardName.innerHTML = article.name;
+      productCardName.textContent = article.name;
       productCardImg.src = article.imageUrl;
       productCardDescription.innerText = article.description;
 
@@ -75,8 +75,8 @@ function addToCart() {
     if (bearNumber.value > 0 && bearNumber.value < 100) {
       // ------ Création du produit qui sera ajouté au panier
       let productAdded = {
-        name: productCardName.innerHTML,
-        price: parseFloat(productCardPrice.innerHTML),
+        name: productCardName.textContent,
+        price: parseFloat(productCardPrice.textContent),
         quantity: parseFloat(document.querySelector("#bearNum").value),
         _id: id,
       };
@@ -97,7 +97,7 @@ function addToCart() {
 
       // Affichage lors d'un ajout au panier
       confirmation.style.visibility = "visible";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;
+      textConfirmation.textContent = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;
       setTimeout("location.reload(true);", 4000);
     } else {
       confirmation.style.visibility = "visible";
