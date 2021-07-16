@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Orinoco, Site de vente en ligne d'ourson en peluche fait main" />
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Orinoco, Site de vente en ligne d'ourson en peluche fait main" />
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
     
-    <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
-
-    <!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>Orinoco - Panier</title>
-</head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    
+        <link rel="stylesheet" href="style.css">
+    
+        <title>Orinoco - Panier</title>
+    </head>
 <body>
     <header>
         <div class="container-fluid">
             <div class="header-container">
                 <div class="nav">
-                    <a href="index.html"><img src="images/logo.png" alt="logo site" class="nav__logo"></a>
+                    <a href="index.html"><img src="img/logo.png" alt="logo site" class="nav__logo"></a>
                     <a href="panier.html"><div class="nav__cart">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
@@ -42,15 +42,16 @@
                         <div class="cart-card__recap__title first-line">Nom</div>
                         <div class="cart-card__recap__title title-quantity first-line">Quantité</div>
                         <div class="cart-card__recap__title data-price first-line">Prix </div>
+
                     </div>                     
                     <div class="width-to-empty-cart">
-                        <a href="panier.html">
+                        <a href="cart.html">
                             <div class="cart-card__form__button to-empty-cart">
                                 Vider le panier
                             </div>
                         </a>
                     </div>
-                    <h3 class="total"></h3>            
+                    <h2 class="total"></h2>            
                 </div>
     
                 <div class="cart-card__form">
@@ -65,11 +66,7 @@
                                 <label for="lastname">Nom :</label>
                                 <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
                             </div>
-                        </div>
-                        <div class="cart-card__form-line" id="bloc__adress">
-                            <label for="adress">Adresse :</label>
-                            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" required>
-                        </div>
+                        </div>        
                         <div class="postal-and-city">
                             <div class="cart-card__form-line" id="bloc__postal">
                                 <label for="postal">Code postal :</label>
@@ -79,6 +76,10 @@
                                 <label for="city">Ville :</label>
                                 <input type="text" placeholder="Ville" id="city" name="user_city" required>
                             </div>
+                        </div>
+                        <div class="cart-card__form-line" id="bloc__adress">
+                            <label for="adress">Adresse :</label>
+                            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" required>
                         </div>
                         <div class="cart-card__form-line" id="bloc__mail">
                             <label for="mail">Adresse mail :</label>
@@ -90,18 +91,16 @@
                         </div>
                         <div class="erreur"></div>
                         <div class="cart-card__form__buttons">
-                            <div id="submit" class="cart-card__form__button to-pay" >Commander</div>
+                                <div id="submit" class="cart-card__form__button to-pay" >Commander</div>
                         </div>
                     </form>
 
                     <div class="added-to-cart-confirmation">
                         <p class="confirmation-text"></p>
-                    </div>
-                    
+                    </div>                    
                     
                 </div>
             </div>
-
             <div class="if-empty-cart">
                 <h2>Votre panier est vide. <a href="index.html">Remplissez le d'abord !</a></h2>
             </div>

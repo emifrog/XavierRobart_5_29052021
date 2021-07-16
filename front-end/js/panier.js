@@ -77,7 +77,7 @@ function countTotalInCart() {
   const reducer = (acc, currentVal) => acc + currentVal;
   arrayOfPrice = arrayOfPrice.reduce(reducer);
 
-  // Affichage du prix en euros
+  // Affichage du prix avec formatage €
   totalPrice.innerText = `Total : ${(arrayOfPrice = new Intl.NumberFormat(
     "fr-FR",
     {
@@ -142,7 +142,7 @@ function checkFormAndPostRequest() {
         products: productsBought,
       };
 
-      // -------  Envoi de la requête POST au back-end --------
+      // -------  Envoi de la requête POST au back-end -------- //
       // Création de l'entête de la requête
       const options = {
         method: "POST",
@@ -159,11 +159,12 @@ function checkFormAndPostRequest() {
         .then((response) => response.json())
         .then((data) => {
           localStorage.clear();
+          console.log(data)
           localStorage.setItem("orderId", data.orderId);
           localStorage.setItem("total", priceConfirmation[1]);
 
           //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
-          document.location.href = "confirmation.html";
+           document.location.href = "confirmation.html";
         })
         .catch((err) => {
           alert("Il y a eu une erreur : " + err);
