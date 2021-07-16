@@ -1,3 +1,4 @@
+// Va chercher les parametres de l'id et les mettres dans une variable
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 
@@ -14,12 +15,12 @@ const colorSelect = document.querySelector("#color-select");
 main();
 
 function main() {
-  checkIf404();
+  error404();
   getArticles();
   addToCart();
 }
 
-function checkIf404() {
+function error404() {
   window.addEventListener("error", (e) => {
       let container = document.querySelector(".container");
       container.textContent = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;

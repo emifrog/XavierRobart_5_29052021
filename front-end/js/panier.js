@@ -47,7 +47,7 @@ function displayCart() {
       "price"
     );
 
-    // Affichage du prix avec le formatage €
+    // Affichage du prix avec le convertir en €
     productPrice.textContent = new Intl.NumberFormat("fr-FR", {
       style: "currency",
       currency: "EUR",
