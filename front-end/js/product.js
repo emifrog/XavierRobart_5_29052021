@@ -4,9 +4,7 @@ let id = params.get("id");
 
 const productCardImg = document.querySelector(".img");
 const productCardName = document.querySelector(".product-card__infos__title");
-const productCardDescription = document.querySelector(
-  ".product-card__infos__description"
-);
+const productCardDescription = document.querySelector(".product-card__infos__description");
 const productCardPrice = document.querySelector(".product-card__infos__price");
 const bearNumber = document.querySelector("#bearNum");
 const colorSelect = document.querySelector("#color-select");
@@ -15,22 +13,8 @@ const colorSelect = document.querySelector("#color-select");
 main();
 
 function main() {
-  error404();
   getArticles();
   addToCart();
-}
-
-function error404() {
-  window.addEventListener("error", (e) => {
-      let container = document.querySelector(".container");
-      container.textContent = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
-      container.style.padding = "40vh 0";
-      container.style.fontSize = "26px";
-      let backToHomeLink = document.querySelector(".back-to-home");
-      backToHomeLink.style.textDecoration = "underline";
-    },
-    true
-  );
 }
 
 function getArticles() {
@@ -42,7 +26,7 @@ function getArticles() {
     .catch((error) => {
       let container = document.querySelector(".container");
       container.textContent =
-        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? Si le problème persiste, contactez-nous.";
       container.style.textAlign = "center";
       container.style.padding = "45vh 0";
     })
