@@ -4,7 +4,9 @@ let id = params.get("id");
 
 const productCardImg = document.querySelector(".img");
 const productCardName = document.querySelector(".product-card__infos__title");
-const productCardDescription = document.querySelector(".product-card__infos__description");
+const productCardDescription = document.querySelector(
+  ".product-card__infos__description"
+);
 const productCardPrice = document.querySelector(".product-card__infos__price");
 const bearNumber = document.querySelector("#bearNum");
 const colorSelect = document.querySelector("#color-select");
@@ -26,7 +28,7 @@ function getArticles() {
     .catch((error) => {
       let container = document.querySelector(".container");
       container.textContent =
-        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? Si le problème persiste, contactez-nous.";
+        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
       container.style.textAlign = "center";
       container.style.padding = "45vh 0";
     })
@@ -74,10 +76,13 @@ function addToCart() {
       // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
       if (localStorage.getItem("products") !== null) {
         arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
-        
-        
-        // Si le LS est vide, on le crée avec le produit ajouté
-      } 
+
+      }
+
+      // Si le LS est vide, on le crée avec le produit ajouté
+
+
+
         arrayProductsInCart.push(productAdded);
         localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
       
