@@ -79,10 +79,9 @@ function addToCart() {
 
       }
 
+      
+
       // Si le LS est vide, on le crée avec le produit ajouté
-
-
-
         arrayProductsInCart.push(productAdded);
         localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
       
