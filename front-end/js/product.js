@@ -79,10 +79,20 @@ function addToCart() {
 
       }
 
-      
 
       // Si le LS est vide, on le crée avec le produit ajouté
-        arrayProductsInCart.push(productAdded);
+        //arrayProductsInCart.push(productAdded);
+        let panier = arrayProductsInCart.some(function(el) {
+          if(el.name === productAdded.name) {
+            el.quantity += productAdded.quantity;
+            return true;
+          }
+        });
+
+        if('panier'){
+          arrayProductsInCart.push(productAdded);
+        }
+
         localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
       
 
@@ -90,7 +100,8 @@ function addToCart() {
       confirmation.style.visibility = "visible";
       textConfirmation.textContent = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;
       setTimeout("location.reload(true);", 4000);
-    } else {
+    } 
+    else {
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "red";
       textConfirmation.style.border = "red";
