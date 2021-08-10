@@ -82,14 +82,17 @@ function addToCart() {
 
       // Si le LS est vide, on le crée avec le produit ajouté
         //arrayProductsInCart.push(productAdded);
+        let incrementedQuantity = false;
+
         let panier = arrayProductsInCart.some(function(el) {
           if(el.name === productAdded.name) {
+            incrementedQuantity = true;
             el.quantity += productAdded.quantity;
             return true;
           }
         });
 
-        if('panier'){
+        if(incrementedQuantity == false) {
           arrayProductsInCart.push(productAdded);
         }
 
